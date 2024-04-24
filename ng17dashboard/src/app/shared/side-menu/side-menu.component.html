@@ -1,0 +1,41 @@
+<div id="menu" class="bg-gray-900 min-h-screen z-10 text-slate-300 w-64 left-0 h-screen overflow-y-scroll">
+    <div id="logo" class="my-4 px-6">
+     <h1 class="text-lg md:text-2xl  text-white"><span class="font-bold" style="color:#eb002d">A</span>ngular<span class="font-bold"style="color:#db4dfd">1</span><span class="font-bold" style="color:#a33aff">7</span></h1>
+     <p class="text-slate-400 text-sm">New version Feats</p>
+    </div>
+    <div id="profile" class="px-6 py-10">
+     <p class="text-slate-500">Welcome back,</p>
+     <a href="#" class="inline-flex space-x-2 items-center">
+         <span>
+             <img class="rounded-full w-8 h-8" src="https://upload.wikimedia.org/wikipedia/en/e/eb/%27Captain_Harlock%27_screenshot_from_Galaxy_Express_999_the_movie.JPG" alt="">
+         </span>
+         <span class="text-sm md:text-base font-bold">
+             Captain Harlock
+         </span>
+         </a>
+    </div>
+    <div id="nav" class="w-full px-6">
+
+        <!-- New Angular 17 Control Flow if -->
+        @if(true){
+            <!-- 
+                New Angular 17 Control Flow!! 
+                Needs a track (like item reference, index...) to work properly-->
+            @for(item of menuItems; track $index){
+                <a [routerLink]="item.path"
+                    routerLinkActive="bg-purple-600 hover:bg-purple-600"
+                    href="#" class="w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3 hover:bg-white/5 transition ease-linear duration-150">
+                    <div class="flex flex-col">
+                        <span class="text-lg font-bold leading-5 text-white">{{ item.title }}</span>
+                        <span class="text-sm text-white/50 hidden md:block">{{ item.path }}</span>
+                    </div>
+                </a>
+            }
+        }
+        
+
+     
+
+     
+    </div>
+ </div>

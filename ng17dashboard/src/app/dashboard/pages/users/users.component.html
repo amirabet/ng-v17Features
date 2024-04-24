@@ -1,0 +1,19 @@
+<app-title titleText="Users List (signals in Services)" textPink />
+@if( usersService.loading()) {
+    <b>Loading users...</b>
+} @else {
+    <ul>
+        @for (user of usersService.users(); track user.id) {
+            <li class="flex items-center my-2">
+                <img [srcset]="user.avatar" [alt]="user.first_name" class="rounded w-16">
+                <a [routerLink]="['/dashboard/user', user.id]" class="mx-5 hover:underline cursor-pointer">
+                    {{ user.first_name }} {{user.last_name}}
+                </a>
+            </li>
+        } @empty {
+            <li class="flex items-center my-2">
+                No users found
+            </li>
+        }
+    </ul>
+}

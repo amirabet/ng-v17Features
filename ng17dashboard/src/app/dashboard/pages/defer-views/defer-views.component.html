@@ -1,0 +1,21 @@
+<app-title titleText="Defer Views" textPink />
+
+<section class="grid grid-cols-1">
+    @defer(){
+        <app-heavy-loaders-slow cssClass="bg-red-600 text-white"/>
+    } @placeholder { 
+        <p class="p-4 h-[600px] w-full bg-gradient-to-tr from-pink-600 to-purple-600 animate-pulse text-white">Loading deferred view...</p>
+    }
+
+    @defer(on idle){
+        <app-heavy-loaders-slow cssClass="bg-pink-600 text-white"/>
+    } @placeholder { 
+        <p class="p-4 h-[600px] w-full bg-gradient-to-tr from-pink-600 to-purple-600 animate-pulse text-white">Loading deferred view...</p>
+    }
+
+    @defer(on viewport){
+        <app-heavy-loaders-slow cssClass="bg-purple-600 text-white"/>
+    } @placeholder { 
+        <p class="p-4 h-[600px] w-full bg-gradient-to-tr from-pink-600 to-purple-600 animate-pulse text-white">Loading deferred view...</p>
+    }
+</section>

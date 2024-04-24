@@ -1,0 +1,84 @@
+<app-title titleText="Control Flow" textPink />
+
+<section class="grid grid-cols-1 md:grid-cols-2 gap-3">
+
+    <!-- @if -->
+    <div class="bg-white rounded shadow p-10">
+        <h1 class="text-2xl">&#x40;if - &#x40;else</h1>
+        <h2 class="text-xl font-bold mb-5"><i>signal</i> showContent(): <span class="text-pink-600">{{ showContent()
+                }}</span></h2>
+
+        <button class="p-2 bg-pink-600 rounded text-white" (click)="toggleContent()">
+            Toggle showContent()
+        </button>
+
+        @if( showContent()){
+        <p class="pt-4"><b>showContent()</b> is set to <i>true</i> and flow-controlled via <i>&#x40;if</i></p>
+        } @else {
+        <p class="pt-4"><b>showContent()</b> is set to <i>false</i> and flow-controlled via <i>&#x40;else</i></p>
+        }
+    </div>
+
+    <!-- @switch -->
+    <div class="bg-white rounded shadow p-10">
+        <h1 class="text-2xl">&#x40;switch</h1>
+        <h2 class="text-xl font-bold mb-5"><i>signal</i> grade(): <span class="text-purple-600">{{ grade() }}</span>
+        </h2>
+
+        <button class="p-2 bg-purple-600 rounded text-white" (click)="changeGrade()">
+            Change grade()
+        </button>
+
+        @switch (grade()) {
+        @case ('A') {
+        <p class="pt-4"><b>A</b> is for Aquaman</p>
+        }
+        @case ('B') {
+        <p class="pt-4"><b>B</b> is for Batman</p>
+        }
+        @case ('C') {
+        <p class="pt-4"><b>C</b> is for Catwoman</p>
+        }
+        @default {
+        <p class="pt-4"><b>D</b> is for Default</p>
+        }
+        }
+    </div>
+
+    <div class="bg-white rounded shadow p-10">
+        <h1 class="text-2xl">&#x40;for <i class="text-lg"> (track frameworks; let i = $index)</i></h1>
+        <p class="text-sm">vars <b>$index</b>, <b>$first</b>, <b>$last</b>, <b>$even</b>, <b>$odd</b> and <b>$count</b> are available</p>
+        <h2 class="text-xl font-bold mb-5"><i>signal</i> frameworks(): <span class="text-pink-600">{{ frameworks() }}</span></h2>
+
+        <ul>
+            @for (framework of frameworks(); track frameworks; let i = $index) {
+            <li>{{ i }} - {{ framework }}</li>
+            }
+        </ul>
+    </div>
+
+    <div class="bg-white rounded shadow p-10">
+        <h1 class="text-2xl">&#x40;for - &#x40;empty</h1>
+        <h2 class="text-xl font-bold mb-5"><i>signal</i> frameworks2(): <span class="text-purple-600">{{ frameworks2() }}</span></h2>
+        
+        @if(frameworks2().length === 0){
+            <button class="p-2 bg-purple-600 rounded text-white" (click)="addFramework()">
+                Add to Framework2
+            </button>
+        } @else {
+            <button class="p-2 bg-purple-600 rounded text-white" (click)="removeFramework()">
+                Remove from Framework2
+            </button>
+        }
+        
+
+        <ul class="pt-4">
+            @for (framework of frameworks2(); track $index) {
+            <li>{{ framework }}</li>
+            } @empty {
+            <li> No elements in &#x40;for of <b>frameworks2()</b></li>
+            }
+        </ul>
+    </div>
+
+</section>
